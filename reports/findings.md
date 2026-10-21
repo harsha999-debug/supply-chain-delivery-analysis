@@ -1,7 +1,8 @@
 # Research & Findings Report: Delivery Performance, Delay Risk, and Logistics Efficiency in Global Supply Chain Operations
 
 **Unified Mentor Machine Learning Fellowship**  
-**Author:** Senior Data Analyst & Analytics Specialist  
+**Author:** Harsha Vardhan
+**Fellowship ID:** UMID010926107863  
 **Dataset Analyzed:** `data/APL_Logistics.csv` (180,519 records, 40 fields, ~59.6 MB)  
 **Status:** Validated, Verified & Deployment-Ready  
 

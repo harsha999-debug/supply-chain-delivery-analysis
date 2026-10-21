@@ -277,8 +277,8 @@ if remaining_count == 0:
 # ---------------------------------------------------------
 st.title("📦 Global Supply Chain Delivery Performance & Delay Risk Analytics")
 st.markdown(
-    "**Unified Mentor Machine Learning Fellowship** | Senior Data Science & Supply Chain Intelligence Project | "
-    "Empirical SLA Verification, Risk Diagnostic & Operational Optimization"
+    "**Unified Mentor Machine Learning Fellowship** | Fellow: **Harsha Vardhan** (`UMID010926107863`) | "
+    "Empirical Logistics, Delay Risk & SLA Diagnostics Platform"
 )
 
 with st.expander("ℹ️ **Business Problem, Methodology & Data Architecture (Click to Expand)**"):
@@ -857,4 +857,4 @@ with tab6:
 # Footer
 # ---------------------------------------------------------
 st.markdown("---")
-st.caption("Unified Mentor Machine Learning Fellowship — Supply Chain Delivery Performance Project | Built with Python & Streamlit")
+st.caption("Unified Mentor Machine Learning Fellowship — Supply Chain Delivery Performance Project | Fellow: Harsha Vardhan (UMID010926107863) | Built with Python & Streamlit")
