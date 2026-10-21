@@ -13,10 +13,10 @@ ENV/
 # Streamlit
 .streamlit/
 
-# Data files (keep raw dataset local, do not commit 59MB CSV to git)
+# Data files (keep raw 60MB CSV local, track compressed 5MB Parquet for cloud deployment)
 data/*.csv
 data/*.xlsx
-data/*.parquet
+!data/APL_Logistics.parquet
 !data/.gitkeep
 
 # Reports / Temporary outputs

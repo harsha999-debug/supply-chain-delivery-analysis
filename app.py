@@ -105,15 +105,26 @@ st.markdown("""
 # ---------------------------------------------------------
 @st.cache_data(show_spinner="Loading and validating supply chain dataset...")
 def get_clean_dataset():
-    data_path = os.path.join(current_dir, "data", "APL_Logistics.csv")
-    if not os.path.exists(data_path):
-        # Fallback search for any CSV in data/
-        data_dir = os.path.join(current_dir, "data")
-        csv_files = [f for f in os.listdir(data_dir) if f.endswith('.csv')]
-        if csv_files:
-            data_path = os.path.join(data_dir, csv_files[0])
-        else:
-            return None, {"error": "CSV file not found in data/ directory."}
+    data_dir = os.path.join(current_dir, "data")
+    candidates = [
+        os.path.join(data_dir, "APL_Logistics.parquet"),
+        os.path.join(data_dir, "APL_Logistics.csv"),
+        os.path.join(data_dir, "APL_Logistics.csv.gz")
+    ]
+    data_path = None
+    for cand in candidates:
+        if os.path.exists(cand):
+            data_path = cand
+            break
+            
+    if not data_path and os.path.exists(data_dir):
+        # Fallback search for any parquet or csv in data/
+        files = [f for f in os.listdir(data_dir) if f.endswith(('.parquet', '.csv', '.csv.gz'))]
+        if files:
+            data_path = os.path.join(data_dir, files[0])
+            
+    if not data_path:
+        return None, {"error": "Dataset file not found in data/ directory."}
             
     raw_df = load_raw_data(data_path)
     clean_df, quality_report = validate_and_clean_data(raw_df)

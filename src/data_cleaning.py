@@ -46,10 +46,10 @@ REDUNDANT_PAIRS = [
 
 def load_raw_data(filepath: str) -> pd.DataFrame:
     """
-    Loads raw supply chain CSV file with fallback encoding support.
+    Loads raw supply chain dataset (Parquet, CSV, or CSV.GZ) with robust fallback encoding support.
     
     Args:
-        filepath: Path to the raw CSV dataset.
+        filepath: Path to the dataset file.
         
     Returns:
         pd.DataFrame: Loaded raw dataset.
@@ -60,8 +60,11 @@ def load_raw_data(filepath: str) -> pd.DataFrame:
     """
     if not os.path.exists(filepath):
         raise FileNotFoundError(
-            f"Dataset not found at: {filepath}. Please ensure the CSV is placed in data/."
+            f"Dataset not found at: {filepath}. Please ensure the dataset is placed in data/."
         )
+    
+    if filepath.endswith('.parquet'):
+        return pd.read_parquet(filepath)
     
     encodings = ['latin1', 'iso-8859-1', 'cp1252', 'utf-8']
     for enc in encodings:
