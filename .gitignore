@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/
+
+# Data files (keep raw dataset local, do not commit 59MB CSV to git)
+data/*.csv
+data/*.xlsx
+data/*.parquet
+!data/.gitkeep
+
+# Reports / Temporary outputs
+*.log
+.DS_Store
+Thumbs.db
